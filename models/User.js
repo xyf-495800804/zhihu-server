@@ -24,6 +24,11 @@ const User = sequelize.define(
 			/* 类型为char */
 			type: Sequelize.CHAR,
 		},
+		/* pwd字段 */
+		pwdtwo: {
+			/* 类型为char */
+			type: Sequelize.CHAR,
+		},
 		/* email字段 */
 		email: {
 			/* 类型为char */
