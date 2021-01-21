@@ -12,3 +12,5 @@ const config = {
 		'targetId',
 	],
 }
+
+module.exports = config
