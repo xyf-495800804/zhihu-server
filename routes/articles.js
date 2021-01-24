@@ -47,7 +47,6 @@ router.post('/articles/create', async (ctx, next) => {
 			creatorId: creatorId,
 			type: 0,
 		}).then((res) => {
-			console.log(res.dataValues.id)
 			return Statuses.create({
 				// 支持字段
 				voteup: '[]',

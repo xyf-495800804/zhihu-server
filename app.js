@@ -17,6 +17,8 @@ const logout = require('./routes/logout')
 const save = require('./routes/save')
 const imgs = require('./routes/imgs')
 const articles = require('./routes/articles')
+const questions = require('./routes/questions')
+const answers = require('./routes/answers')
 
 // error handler
 onerror(app)
@@ -63,6 +65,8 @@ app.use(logout.routes(), logout.allowedMethods())
 app.use(save.routes(), save.allowedMethods())
 app.use(imgs.routes(), imgs.allowedMethods())
 app.use(articles.routes(), articles.allowedMethods())
+app.use(questions.routes(), questions.allowedMethods())
+app.use(answers.routes(), answers.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
