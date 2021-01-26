@@ -72,13 +72,13 @@ router.post('/questions/update', async (ctx, next) => {
 				{
 					// 查询参数
 					where,
-				}.then((res) => {
-					ctx.body = {
-						status: 200,
-						msg: '问题修改成功',
-					}
-				})
-			)
+				}
+			).then((res) => {
+				ctx.body = {
+					status: 200,
+					msg: '问题修改成功',
+				}
+			})
 		}
 	} catch (err) {
 		utils.catchError(err)
@@ -89,12 +89,12 @@ router.post('/questions/update', async (ctx, next) => {
 /* ------问题查询单个接口开始------ */
 router.post('/questions/get', async (ctx, next) => {
 	const { questionsId } = ctx.request.body
-	const questionWhere = {
+	const where = {
 		id: questionsId,
 	}
 	try {
 		await Questions.findOne({
-			questionWhere,
+			where,
 			attributes: questionAttributes,
 		}).then((res) => {
 			ctx.body = {

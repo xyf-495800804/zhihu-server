@@ -13,6 +13,7 @@ const utils = require('../libs/utils')
 /* ------创建回答方法接口开始------ */
 router.post('/answer/create', async (ctx, next) => {
 	// 引入作者id,问题id，回答内容和回答简介参数
+	console.log(ctx.request)
 	const { creatorId, targetId, content, excerpt } = ctx.request.body
 	try {
 		await Answers.create({
@@ -137,5 +138,28 @@ router.post('/answer/updata', async (ctx, next) => {
 	}
 })
 /* ------更新回答接口结束------ */
+
+/* ------获得回答接口开始------ */
+router.post('/answer/getId', async (ctx, next) => {
+	const { id } = ctx.request.body
+	// 定义查询顺序，以id倒序查询
+	// * asc正向排序 desc逆向排序 nat自然排序
+	const order = [['id', 'DESC']]
+	//创建查找条件
+	const where = {
+		question_id: id,
+	}
+	try {
+		await Answers.findAll({ where,order }).then((res) => {
+			ctx.body = {
+				status: 200,
+				data: res,
+			}
+		})
+	} catch (err) {
+		utils.catchError(err)
+	}
+})
+/* ------获得回答接口结束------ */
 
 module.exports = router
