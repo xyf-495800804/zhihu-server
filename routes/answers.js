@@ -150,7 +150,7 @@ router.post('/answer/getId', async (ctx, next) => {
 		question_id: id,
 	}
 	try {
-		await Answers.findAll({ where,order }).then((res) => {
+		await Answers.findAll({ where, order }).then((res) => {
 			ctx.body = {
 				status: 200,
 				data: res,
@@ -161,5 +161,25 @@ router.post('/answer/getId', async (ctx, next) => {
 	}
 })
 /* ------获得回答接口结束------ */
+
+/* ------获得具体回答接口开始------ */
+router.post('/answer/getOnlyId', async (ctx, next) => {
+	const { id } = ctx.request.body
+	//创建查找条件
+	const where = {
+		id: id,
+	}
+	try {
+		await Answers.findAll({ where }).then((res) => {
+			ctx.body = {
+				status: 200,
+				data: res,
+			}
+		})
+	} catch (err) {
+		utils.catchError(err)
+	}
+})
+/* ------获得具体回答接口结束------ */
 
 module.exports = router
