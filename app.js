@@ -19,6 +19,7 @@ const imgs = require('./routes/imgs')
 const articles = require('./routes/articles')
 const questions = require('./routes/questions')
 const answers = require('./routes/answers')
+const comments = require('./routes/comments')
 
 // error handler
 onerror(app)
@@ -67,6 +68,7 @@ app.use(imgs.routes(), imgs.allowedMethods())
 app.use(articles.routes(), articles.allowedMethods())
 app.use(questions.routes(), questions.allowedMethods())
 app.use(answers.routes(), answers.allowedMethods())
+app.use(comments.routes(), comments.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
