@@ -1,6 +1,6 @@
 const config = {
 	userAttributes: ['name', 'email', 'avatarUrl', 'headline'],
-	commentAttributes: ['creatorId', 'content', 'targetId'],
+	commentAttributes: ['id', 'creatorId', 'content', 'targetId'],
 	articleAttributes: ['id', 'title', 'excerpt', 'content', 'cover', 'type'],
 	questionAttributes: ['id', 'title', 'excerpt', 'discription', 'creatorId'],
 	answerAttributes: [
